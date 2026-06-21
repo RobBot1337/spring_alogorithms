@@ -1,6 +1,6 @@
-#pragma once
+#ifndef STACK_HPP
+#define STACK_HPP
 
-#include <stack>
 #include <vector>
 
 class Stack {
@@ -9,7 +9,7 @@ class Stack {
   int Pop();
 
  private:
-  std::stack<int> data_;
+  std::vector<int> data_;
 };
 
 class MinStack {
@@ -20,4 +20,7 @@ class MinStack {
 
  private:
   std::vector<int> data_;
+  std::vector<int> min_data_;  
 };
+
+#endif
