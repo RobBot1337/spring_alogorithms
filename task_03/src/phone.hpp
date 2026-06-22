@@ -4,6 +4,6 @@
 #include <vector>
 #include <string>
 
-std::vector<std::string> phone(std::string& digits);
+std::vector<std::string> phone(const std::string& digits);
 
 #endif

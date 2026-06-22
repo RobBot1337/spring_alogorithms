@@ -1,4 +1,5 @@
 #include "hashmap.hpp"
+#include <functional>
 
 HashMap::HashMap() : size(0), capacity(16) {
     table.resize(capacity);
@@ -6,8 +7,8 @@ HashMap::HashMap() : size(0), capacity(16) {
 
 HashMap::~HashMap() {}
 
-int HashMap::hash(int key) {
-    return key % capacity;
+int HashMap::hash(int key) const {
+    return std::hash<int>{}(key) % capacity;
 }
 
 void HashMap::rehash() {
@@ -17,7 +18,7 @@ void HashMap::rehash() {
     
     for (int i = 0; i < oldCapacity; ++i) {
         for (auto& pair : table[i]) {
-            int newIndex = pair.first % capacity;
+            int newIndex = std::hash<int>{}(pair.first) % capacity;
             newTable[newIndex].push_back(pair);
         }
     }

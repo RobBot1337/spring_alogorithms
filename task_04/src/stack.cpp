@@ -5,9 +5,16 @@ void Stack::Push(int value) {
 }
 
 int Stack::Pop() {
+  if (data_.empty()) {
+    return -1;
+  }
   auto result = data_.back();
   data_.pop_back();
   return result;
+}
+
+bool Stack::Empty() const {
+  return data_.empty();
 }
 
 void MinStack::Push(int value) {
@@ -19,16 +26,27 @@ void MinStack::Push(int value) {
 }
 
 int MinStack::Pop() {
+  if (data_.empty()) {
+    return -1;
+  }
+  
   auto result = data_.back();
   data_.pop_back();
   
-  if (result == min_data_.back()) {
+  if (!min_data_.empty() && result == min_data_.back()) {
     min_data_.pop_back();
   }
   
   return result;
 }
 
-int MinStack::GetMin() { 
-  return min_data_.back(); 
-} 
+int MinStack::GetMin() {
+  if (min_data_.empty()) {
+    return -1;
+  }
+  return min_data_.back();
+}
+
+bool MinStack::Empty() const {
+  return data_.empty();
+}

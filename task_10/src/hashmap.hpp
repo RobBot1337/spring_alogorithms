@@ -19,6 +19,6 @@ private:
     int size;
     int capacity;
     
-    int hash(int key);
+    int hash(int key) const;
     void rehash();
 };

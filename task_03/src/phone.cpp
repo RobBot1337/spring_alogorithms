@@ -1,16 +1,13 @@
 #include <vector>
 #include <string>
 #include <unordered_map>
-
 #include "phone.hpp"
 
-using namespace std;
-
 void dfs(int pos,
-    const string& digits,
-    const unordered_map<char, string>& phone,
-    string& current,
-    vector<string>& result){
+    const std::string& digits,
+    const std::unordered_map<char, std::string>& phone,
+    std::string& current,
+    std::vector<std::string>& result){
 
         if (pos == digits.size()){
             result.push_back(current);
@@ -26,9 +23,9 @@ void dfs(int pos,
 
 
 
-vector<string> phone(string& digits){
+std::vector<std::string> phone(std::string& digits){
 
-    unordered_map<char, string> phone = {
+    std::unordered_map<char, std::string> phone = {
         {'2', "abc"},
         {'3', "def"},
         {'4', "ghi"},
@@ -38,8 +35,8 @@ vector<string> phone(string& digits){
         {'8', "tuv"},
         {'9', "wxyz"}
     };
-    vector<string> result;
-    string current;
+    std::vector<std::string> result;
+    std::string current;
 
     dfs(0, digits, phone, current, result);
 

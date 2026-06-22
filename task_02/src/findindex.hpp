@@ -2,6 +2,6 @@
 #define FINDINDEX_HPP
 #include <vector>
 
-int FindIndex(int size, std::vector<int> binar_numbers);
+int FindIndex(int size, const std::vector<int>& binar_numbers);
 
 #endif

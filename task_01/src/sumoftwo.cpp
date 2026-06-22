@@ -2,7 +2,7 @@
 #include <vector>
 #include <utility>
 
-std::pair<int,int> SumOfTwo(int k, int size, std::vector<int> numbers){
+std::pair<int,int> SumOfTwo(int k, int size, const std::vector<int>& numbers){
   int i = 0;
   int j = size-1;
     while(j>i){
